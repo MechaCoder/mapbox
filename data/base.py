@@ -1,10 +1,15 @@
+from os.path import isfile
 from tinydb_base import DatabaseBase
-from exceptions import NotImplermented
+from .exceptions import NotImplermented
 from .utilities import makeUuid
 
 class Base(DatabaseBase):
 
-    def __init__(self, file: str = 'ds.json', table: str = ..., requiredKeys='title:str'):
+    def __init__(self, table: str = ..., requiredKeys='title:str'):
+        file = 'ds.json'
+        if isfile('.dev'):
+            print('Developer Mode Actvated :: ', table)
+            file = 'ds.dev.json'
         super().__init__(file=file, table=table, requiredKeys=requiredKeys)
         self.uuidLength = 8
 

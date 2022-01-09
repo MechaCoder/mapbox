@@ -53,3 +53,7 @@ Thumbs.db
 # javascript
 node_modules
 static/dist
+static/src/App.css
+static/src/App.js
+static/src/components/header.css
+static/src/components/header.jsx
